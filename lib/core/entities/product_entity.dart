@@ -31,4 +31,9 @@ class ProductEntity {
       required this.image,
       required this.isFeatured,
       this.imageUrl});
+
+
+
+
+
 }
