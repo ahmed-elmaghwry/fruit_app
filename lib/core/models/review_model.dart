@@ -1,4 +1,3 @@
-
 import '../entities/review_entity.dart';
 
 class ReviewModel {
@@ -32,6 +31,7 @@ class ReviewModel {
         date: json['date'],
         reviewDescription: json['reviewDescription']);
   }
+
   toJson() {
     return {
       'name': name,
