@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "563652595525",
+    "project_id": "fruithub-5db4d",
+    "storage_bucket": "fruithub-5db4d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:563652595525:android:3118f07a3fc0e435d6f82c",
+        "android_client_info": {
+          "package_name": "com.example.fruit_hub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY_fqzwfAK2qfM3VNgvBbiqggVrwWfDjU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
