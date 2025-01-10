@@ -16,14 +16,11 @@ class ProductsRepoImpl implements ProductsRepo {
     try {
       var data = await databaseService.getData(
           path: BackendEndpoint.getProducts,
-         query: {
-            'limit': '10',
+          query: {
+            'limit': 10,
             'orderBy': 'sellingCount',
-           'descending': true
-
-         }
-
-      ) as List<Map<String, dynamic>>;
+            'descending': true
+          }) as List<Map<String, dynamic>>;
 
       List<ProductEntity> products =
           data.map((e) => ProductModel.fromJson(e).toEntity()).toList();

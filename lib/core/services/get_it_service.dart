@@ -1,5 +1,5 @@
-
-
+import 'package:fruit_hub/core/repos/product_repo/products_repo.dart';
+import 'package:fruit_hub/core/repos/product_repo/products_repo_impl.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../features/auth/data/repos/auth_repo_impl.dart';
@@ -19,4 +19,6 @@ void setupGetit() {
       databaseService: getIt<DatabaseService>(),
     ),
   );
+  getIt.registerSingleton<ProductsRepo>(
+      ProductsRepoImpl(databaseService: getIt.get<DatabaseService>()));
 }
