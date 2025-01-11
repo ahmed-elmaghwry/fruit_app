@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:svg_flutter/svg.dart';
 
 import '../../../../../core/utils/app_colors.dart';
@@ -10,6 +9,7 @@ class ActiveItem extends StatelessWidget {
 
   final String text;
   final String image;
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -22,7 +22,7 @@ class ActiveItem extends StatelessWidget {
           ),
         ),
         child: Row(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisSize: MainAxisSize.min, // يمنع الـ Row من التمدد الزائد
           children: [
             Container(
               width: 30,
@@ -35,15 +35,17 @@ class ActiveItem extends StatelessWidget {
               ),
               child: Center(child: SvgPicture.asset(image)),
             ),
-            const SizedBox(
-              width: 4,
-            ),
+            const SizedBox(width: 4),
             Flexible(
-              child: Text(
-                overflow:  TextOverflow.ellipsis,
-                text,
-                style: TextStyles.semiBold11
-                    .copyWith(color: AppColors.primaryColor),
+              child: Container(
+                constraints: const BoxConstraints(maxWidth: 200), // الحد الأقصى لعرض النص
+                child: Text(
+                  text,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyles.semiBold11.copyWith(
+                    color: AppColors.primaryColor,
+                  ),
+                ),
               ),
             ),
           ],

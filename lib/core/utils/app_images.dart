@@ -25,6 +25,7 @@ class Assets {
   /// Assets for imagesFilter
   /// assets/images/filter.svg
   static const String imagesFilter = "assets/images/filter.svg";
+  static const String imagesFilter2 = "assets/images/filter2.svg";
 
   /// Assets for imagesGoogleIcon
   /// assets/images/google_icon.svg

@@ -5,10 +5,10 @@ import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../core/helper_functions/get_dummy_products.dart';
 import '../../../../../core/widgets/custom_error_text_widget.dart';
-import 'best_selling_grid_view.dart';
+import 'products_grid_view.dart';
 
-class BestSellingGridViewBlocBuilder extends StatelessWidget {
-  const BestSellingGridViewBlocBuilder({
+class ProductsGridViewBlocBuilder extends StatelessWidget {
+  const ProductsGridViewBlocBuilder({
     super.key,
   });
 
@@ -19,10 +19,10 @@ class BestSellingGridViewBlocBuilder extends StatelessWidget {
          if(state is ProductsFailure){
           return Center(child: CustomErrorTextWidget(errorMessage: state.errorMessage,),);
         }else if(state is ProductsSuccess){
-           return  BestSellingGridView(products: state.products,);
+           return  ProductsGridView(products: state.products,);
         }
         else{
-          return  Skeletonizer.sliver(child: BestSellingGridView(products: getDummyProducts(),));
+          return  Skeletonizer.sliver(child: ProductsGridView(products: getDummyProducts(),));
         }
 
 

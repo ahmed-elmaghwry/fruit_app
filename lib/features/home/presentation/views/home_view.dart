@@ -9,7 +9,7 @@ import 'package:fruit_hub/features/home/presentation/views/widgets/home_view_bod
 
 import '../../../../constants.dart';
 import '../../../../core/widgets/search_text_field.dart';
-import 'widgets/best_selling_grid_view.dart';
+import 'widgets/products_grid_view.dart';
 import 'widgets/best_selling_header.dart';
 import 'widgets/custom_home_app_bar.dart';
 import 'widgets/featured_list.dart';
