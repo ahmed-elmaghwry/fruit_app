@@ -5,6 +5,7 @@ import '../../../../../constants.dart';
 import '../../../../../core/cubit/products_cubit.dart';
 import '../../../../../core/widgets/search_text_field.dart';
 import 'best_selling_grid_view.dart';
+import 'best_selling_grid_view_bloc_builder.dart';
 import 'best_selling_header.dart';
 import 'custom_home_app_bar.dart';
 import 'featured_list.dart';
@@ -56,9 +57,10 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               ],
             ),
           ),
-          BestSellingGridView()
+          BestSellingGridViewBlocBuilder()
         ],
       ),
     );
   }
 }
+

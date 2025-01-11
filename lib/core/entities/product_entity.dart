@@ -9,7 +9,7 @@ class ProductEntity {
   final num price;
   final File image;
   final bool isFeatured;
-  String? imageUrl;
+  final String imageUrl;
   final int expirationsMonths;
   final bool isOrganic;
   final int numberOfCalories;
@@ -30,7 +30,7 @@ class ProductEntity {
       this.isOrganic = false,
       required this.image,
       required this.isFeatured,
-      this.imageUrl});
+       required this.imageUrl});
 
 
 

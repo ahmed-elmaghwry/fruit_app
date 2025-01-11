@@ -1,5 +1,8 @@
 import 'dart:io';
+import 'package:fruit_hub/core/entities/review_entity.dart';
+
 import '../entities/product_entity.dart';
+import '../helper_functions/get_avg_rating.dart';
 import 'review_model.dart';
 
 class ProductModel {
@@ -9,18 +12,20 @@ class ProductModel {
   final num price;
   final File image;
   final bool isFeatured;
-  String? imageUrl;
+  final String imageUrl;
   final int expirationsMonths;
   final bool isOrganic;
   final int numberOfCalories;
-  final num avgRating = 0;
+  final num avgRating;
+
   final num ratingCount = 0;
   final int unitAmount;
   final int sellingCount;
   final List<ReviewModel> reviews;
 
   ProductModel(
-      {required this.name,
+      {required this.avgRating,
+      required this.name,
       required this.code,
       required this.description,
       required this.expirationsMonths,
@@ -32,10 +37,12 @@ class ProductModel {
       required this.isOrganic,
       required this.image,
       required this.isFeatured,
-      this.imageUrl});
+     required this.imageUrl});
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
+      imageUrl: json['imageUrl'],
+      avgRating:0.0,
       name: json['name'],
       code: json['code'],
       sellingCount: json['sellingCount'],
@@ -52,8 +59,6 @@ class ProductModel {
     );
   }
 
-
-
   ProductEntity toEntity() {
     return ProductEntity(
       name: name,
@@ -67,6 +72,8 @@ class ProductModel {
       image: image,
       isFeatured: isFeatured,
       reviews: reviews.map((review) => review.toEntity()).toList(),
+
+      imageUrl: imageUrl,
     );
   }
 

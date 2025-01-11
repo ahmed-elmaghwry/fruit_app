@@ -48,6 +48,7 @@ dependencies:
   sign_in_with_apple: ^6.1.1
   svg_flutter:
   flutter_svg_provider:
+  skeletonizer:
 
 dev_dependencies:
   flutter_launcher_icons: "^0.13.1"
