@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruit_hub/features/home/presentation/views/products_view.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/custom_bottom_navigation_bar.dart';
 
+import 'cart_view.dart';
 import 'home_view.dart';
 
 class MainView extends StatefulWidget {
@@ -32,7 +33,7 @@ class _MainViewState extends State<MainView> {
           children: const [
             HomeView(),
             ProductsView(),
-            ProductsView(),
+            CartView(),
             ProductsView(),
           ],),
       ),

@@ -34,7 +34,7 @@ class _ProductsViewBodyState extends State<ProductsViewBody> {
                 const SizedBox(
                   height: kTopPaddding,
                 ),
-                 buildAppBar(context, title: 'المنتجات'),
+                 buildAppBar(context, title: 'المنتجات',showBackButton: false),
                 // const build,
                 const SizedBox(
                   height: 16,
