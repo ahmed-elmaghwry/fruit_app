@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/features/home/domain/entites/cart_item_entity.dart';
 import 'package:svg_flutter/svg.dart';
 
 import '../../../../../core/utils/app_colors.dart';
@@ -8,7 +9,9 @@ import '../../../../../core/widgets/cart_item_action_buttons.dart';
 import '../../../../../core/widgets/custom_network_image.dart';
 
 class CartItem extends StatelessWidget {
-  const CartItem({super.key});
+  const CartItem({super.key, required this.cartItemEntity});
+
+  final CartItemEntity cartItemEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +22,9 @@ class CartItem extends StatelessWidget {
             width: 73,
             height: 92,
             decoration: const BoxDecoration(color: Color(0xFFF3F5F7)),
-            child: const CustomNetworkImage(
-              imageUrl: 'https://cdn.pixabay.com/photo/2022/05/28/07/07/watermelon-7226708_1280.png',
+            child:   CustomNetworkImage(
+              imageUrl:cartItemEntity.productEntity.imageUrl,
+
             ),
           ),
           const SizedBox(
@@ -33,8 +37,8 @@ class CartItem extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const Text(
-                      'بطيخ',
+                      Text(
+                      cartItemEntity.productEntity.name,
                       style: TextStyles.bold13,
                     ),
                     const Spacer(),
@@ -45,7 +49,7 @@ class CartItem extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '3 كم',
+                      '${cartItemEntity.calculateTotalWeight()}  كم',
                       textAlign: TextAlign.right,
                       style: TextStyles.regular13.copyWith(
                         color: AppColors.secondaryColor,
@@ -58,8 +62,9 @@ class CartItem extends StatelessWidget {
                     const CartItemActionButtons(),
                     const Spacer(),
                     Text(
-                      '60 جنيه ',
-                      style: TextStyles.bold16.copyWith(color: AppColors.secondaryColor),
+                      '${cartItemEntity.productEntity.price} جنيه ',
+                      style: TextStyles.bold16
+                          .copyWith(color: AppColors.secondaryColor),
                     ),
                   ],
                 ),

@@ -9,6 +9,9 @@ import 'cart_item_list.dart';
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});
 
+
+
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -39,7 +42,9 @@ class CartViewBody extends StatelessWidget {
             const SliverToBoxAdapter(
               child: CustomDivider(),
             ),
-            const CarItemsList(),
+            const CarItemsList(
+              cartItems: [],
+            ),
             const SliverToBoxAdapter(
               child: CustomDivider(),
             ),
