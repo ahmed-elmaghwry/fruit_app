@@ -26,4 +26,18 @@ class CartEntity {
 
   }
 
+ CartItemEntity getCartItem({required ProductEntity product}){
+
+     for(var cartItem in cartEntity){
+       if(cartItem.productEntity==product){
+         return cartItem;
+       }
+     }
+     return CartItemEntity(productEntity: product, count: 1);
+
+
+
+ }
+
+
 }
