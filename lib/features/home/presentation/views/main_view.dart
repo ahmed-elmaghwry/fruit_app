@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/features/home/presentation/cubit/cart_cubit.dart';
 import 'package:fruit_hub/features/home/presentation/views/products_view.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/custom_bottom_navigation_bar.dart';
+import 'package:fruit_hub/features/home/presentation/views/widgets/main_view_body.dart';
+import 'package:fruit_hub/features/home/presentation/views/widgets/main_view_body_listener.dart';
 
 import 'cart_view.dart';
 import 'home_view.dart';
@@ -32,17 +34,11 @@ class _MainViewState extends State<MainView> {
       body: SafeArea(
         child: BlocProvider(
           create: (context) => CartCubit(),
-          child: IndexedStack(
-            index: currentViewIndex,
-            children: const [
-              HomeView(),
-              ProductsView(),
-              CartView(),
-              ProductsView(),
-            ],),
+          child: MainViewBodyListener(currentViewIndex: currentViewIndex),
         ),
       ),
     );
   }
 
 }
+
