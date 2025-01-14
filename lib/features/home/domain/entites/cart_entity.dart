@@ -14,6 +14,21 @@ class CartEntity {
     cartEntity.add(item);
   }
 
+
+  void removeItemEntity({required CartItemEntity item}) {
+    cartEntity.remove(item);
+  }
+
+
+
+  num calculateTotalPrice() {
+    return cartEntity.fold<num>(
+      0,
+      (total, cartItem) => total + cartItem.calculateTotalPrice(),
+    );
+  }
+
+
   bool productIsExist(ProductEntity productEntity){
 
      for(var cartItem in cartEntity){

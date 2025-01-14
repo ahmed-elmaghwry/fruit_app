@@ -5,6 +5,7 @@ import 'package:meta/meta.dart';
 
 import '../../domain/entites/cart_item_entity.dart';
 
+
 part 'cart_state.dart';
 
 class CartCubit extends Cubit<CartState> {
@@ -27,5 +28,10 @@ class CartCubit extends Cubit<CartState> {
     }
 
     emit(CartProductAdded());
+  }
+
+  void removeCartItem(CartItemEntity cartItemEntity) {
+    cartEntity.removeItemEntity(item: cartItemEntity);
+    emit(CartProductRemoved());
   }
 }

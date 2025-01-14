@@ -22,6 +22,10 @@ class MainViewBodyListener extends StatelessWidget {
          buildErrorBar(context, ' تم اضافة المنتج الى السلة');
         }
 
+        else if(state is CartProductRemoved){
+          buildErrorBar(context, ' تم حذف المنتج من السلة');
+        }
+
 
       },
       child: MainViewBody(currentViewIndex: currentViewIndex),

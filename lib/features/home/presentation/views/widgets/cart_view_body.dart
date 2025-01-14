@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/features/home/presentation/cubit/cart_cubit.dart';
+import 'package:fruit_hub/features/home/presentation/cubit/cart_item_cubit/cart_item_cubit.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/widgets/build_app_bar.dart';
 import '../../../../../core/widgets/custom_app_bar.dart';
@@ -44,24 +45,42 @@ class CartViewBody extends StatelessWidget {
              SliverToBoxAdapter(
               child:context.read<CartCubit>().cartEntity.cartEntity.isEmpty?const SizedBox() :const CustomDivider(),
             ),
-            const CarItemsList(
-              cartItems: [],
+              CarItemsList(
+              cartItems: context.read<CartCubit>().cartEntity.cartEntity,
             ),
             SliverToBoxAdapter(
               child:context.read<CartCubit>().cartEntity.cartEntity.isEmpty?const SizedBox() :const CustomDivider(),
             ),
           ],
         ),
-        Positioned(
-          left: 16,
-          right: 16,
-          bottom: MediaQuery.sizeOf(context).height * .07,
-          child: CustomButton(
-            onPressed: () {},
-            text: 'الدفع  120جنيه',
+        Visibility(
+          visible: context.watch<CartCubit>().cartEntity.calculateTotalPrice()>0,
+          child: Positioned(
+            left: 16,
+            right: 16,
+            bottom: MediaQuery.sizeOf(context).height * .07,
+            child:const CustomCartButton(),
           ),
         )
       ],
     );
+  }
+}
+
+class CustomCartButton extends StatelessWidget {
+  const CustomCartButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<CartItemCubit, CartItemState>(
+  builder: (context, state) {
+    return CustomButton(
+      onPressed: () {},
+      text: 'الدفع     ${context.watch<CartCubit>().cartEntity.calculateTotalPrice()}جنيه',
+    );
+  },
+);
   }
 }
