@@ -17,7 +17,7 @@ class Assets {
 
   /// Assets for imagesFacebookIcon
   /// assets/images/facebook_icon.svg
-  static const String imagesFacebookIcon = "assets/images/trash.svg";
+  static const String imagesFacebookIcon = "assets/images/facebook_icon.svg";
 
   /// Assets for imagesFeaturedItemBackground
   /// assets/images/featured_item_background.svg

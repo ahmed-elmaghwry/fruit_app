@@ -8,6 +8,7 @@ import '../../../../../core/widgets/custom_app_bar.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import 'cart_header.dart';
 import 'cart_item_list.dart';
+import 'custom_cart_button.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});
@@ -67,20 +68,3 @@ class CartViewBody extends StatelessWidget {
   }
 }
 
-class CustomCartButton extends StatelessWidget {
-  const CustomCartButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<CartItemCubit, CartItemState>(
-  builder: (context, state) {
-    return CustomButton(
-      onPressed: () {},
-      text: 'الدفع     ${context.watch<CartCubit>().cartEntity.calculateTotalPrice()}جنيه',
-    );
-  },
-);
-  }
-}

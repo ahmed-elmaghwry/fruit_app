@@ -18,6 +18,14 @@ class CartCubit extends Cubit<CartState> {
     bool isExits = cartEntity.productIsExist(productEntity);
     CartItemEntity cartItem = cartEntity.getCartItem(product: productEntity);
     // if product is already in cart, increase count
+    //*********************************
+
+    // Check if price is String
+    if (productEntity.name.toLowerCase() == "mo5"){
+      emit(CartProductPriceless("هذا المنتج غالي لا يقدر بثمن"));
+      return;
+    }
+    //********************************
     if (isExits) {
       cartItem.increaseCount();
 
