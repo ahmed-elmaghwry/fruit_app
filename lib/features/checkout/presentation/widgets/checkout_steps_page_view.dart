@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/features/checkout/presentation/widgets/payment_section.dart';
 import 'package:fruit_hub/features/checkout/presentation/widgets/shipping_section.dart';
 
 import 'address_input_section.dart';
@@ -31,7 +32,6 @@ List<Widget> getPages() {
   return [
     const ShippingSection(),
     const AddressInputSection(),
-    const SizedBox(),
-    const SizedBox(),
+    const PaymentSection(),
   ];
 }
