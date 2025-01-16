@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/features/checkout/presentation/widgets/shipping_section.dart';
 
 import 'checkout_steps.dart';
 
@@ -10,13 +11,26 @@ import 'checkout_steps.dart';
   final PageController pageController;
   @override
   Widget build(BuildContext context) {
-    return PageView.builder(
-      controller: pageController,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: getSteps().length,
-      itemBuilder: (context, index) {
-        return const SizedBox();
-      },
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      child: PageView.builder(
+        controller: pageController,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: getPages().length,
+        itemBuilder: (context, index) {
+          return getPages()[index];
+        },
+      ),
     );
   }
+}
+
+
+List<Widget> getPages() {
+  return [
+    const ShippingSection(),
+    const SizedBox(),
+    const SizedBox(),
+    const SizedBox(),
+  ];
 }
